@@ -1,0 +1,1 @@
+# magic-recipes-copilot

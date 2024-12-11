@@ -1,0 +1,230 @@
+body {
+  background-color: #F5F5F5;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #B22222;
+  /* Firebrick red */
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+header .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+header .logo {
+  width: 50px;
+  margin-right: 10px;
+}
+
+header h1 {
+  font-family: 'Great Vibes', cursive;
+  font-size: 48px;
+  margin: 0;
+}
+
+footer {
+  background-color: #228B22;
+  /* Forest green */
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.container.body-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.chat-container {
+  background-image: url('../images/christmas-background.jpg');
+  background-size: cover;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.chat-history {
+  max-height: 500px;
+  overflow-y: auto;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 10px;
+}
+
+.message {
+  display: flex;
+  align-items: flex-end;
+  margin-bottom: 10px;
+}
+
+.message.user {
+  justify-content: flex-end;
+}
+
+.message.llm {
+  justify-content: flex-start;
+}
+
+.message-content {
+  display: flex;
+  align-items: center;
+}
+
+.message-content p {
+  background-color: #DAA520;
+  /* Goldenrod */
+  padding: 10px;
+  border-radius: 10px;
+  margin: 0 10px;
+  color: #fff;
+  max-width: 60%;
+  word-wrap: break-word;
+}
+
+.message.user .message-content p {
+  background-color: #B22222;
+  /* Firebrick red */
+}
+
+.user-icon,
+.llm-icon {
+  width: 40px;
+  height: 40px;
+}
+
+.message.user .user-icon {
+  order: 2;
+}
+
+.message.user .message-content p {
+  order: 1;
+}
+
+.message.llm .llm-icon {
+  order: 1;
+}
+
+.message.llm .message-content p {
+  order: 2;
+}
+
+.chat-input-form {
+  display: flex;
+}
+
+.chat-input-form input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.chat-input-form button {
+  background-color: #228B22;
+  /* Forest green */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+/* Style for the Clear button */
+#clearChat {
+  background-color: #B22222;
+  /* Firebrick red */
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  border-radius: 5px;
+}
+
+#clearChat:hover {
+  background-color: #8B0000;
+  /* Dark red */
+}
+
+.chat-input-form button:hover {
+  background-color: #006400;
+  /* Dark green */
+}
+
+.icon-size {
+  width: 50px;
+  height: 50px;
+}
+
+/* Login and Logout Buttons */
+.auth-button {
+  background-color: #B22222;
+  /* Firebrick red */
+  color: #fff;
+  border: none;
+  padding: 12px 25px;
+  margin: 5px;
+  border-radius: 30px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.auth-button:hover {
+  background-color: #8B0000;
+  /* Dark red */
+  transform: scale(1.05);
+}
+
+.auth-button.logout {
+  background-color: #228B22;
+  /* Forest green */
+}
+
+.auth-button.logout:hover {
+  background-color: #006400;
+  /* Dark green */
+}
+
+/* Align buttons nicely in header or section */
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 32px;
+  }
+
+  .message-content p {
+    max-width: 80%;
+    font-size: 14px;
+  }
+
+  .chat-input-form input[type="text"] {
+    font-size: 14px;
+  }
+
+  .chat-input-form button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .auth-button {
+    font-size: 14px;
+    padding: 10px 20px;
+  }
+}

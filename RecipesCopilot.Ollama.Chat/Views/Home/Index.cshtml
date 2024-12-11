@@ -1,0 +1,53 @@
+﻿@using Microsoft.AspNetCore.Authentication
+@using Microsoft.AspNetCore.Authentication.OpenIdConnect
+
+@model List<RecipesCopilot.Ollama.Chat.DTO.Shared.Message>
+
+@{
+    ViewData["Title"] = "Recipes with Ollama LLM - Christmas Edition";
+}
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="auth-container">
+        <p>Welcome, @User.Identity.Name!</p>
+        <form method="post" action="/Home/Logout">
+            <button type="submit" class="auth-button">Logout</button>
+        </form>
+
+        @* <form method="post" action="/Home/ListTags">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="btn btn-primary">Call Action</button>
+        </form> *@
+
+        @* <form method="post" action="/Home/ListTags">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="auth-button">GetTags</button>
+        </form> *@
+        </div>
+
+        <!-- Chat container visible only for authenticated users -->
+        <div class="chat-container">
+            <div id="chatHistory" class="chat-history">
+                <!-- Messages will be appended here -->
+            </div>
+            <form id="chatForm" class="chat-input-form">
+                @Html.AntiForgeryToken()
+                <input type="text" id="userMessage" placeholder="Ask about Christmas recipes..." required />
+                <button type="submit">Send</button>
+                <button type="button" id="clearChat">Clear</button>
+            </form>
+        </div>
+    }
+    else
+    {
+        <form method="post" action="/Home/Login">
+            <button type="submit" class="auth-button">Login</button>
+        </form>
+    }
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.0/signalr.min.js"></script>
+    <script src="~/js/chat.js"></script>
+}
